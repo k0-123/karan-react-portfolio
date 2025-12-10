@@ -1,19 +1,22 @@
  // src/App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+
 import PillNavbar from "./components/PillNavbar";
-import GhostCursor from "./components/GhostCursor"; // optional
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Work from "./pages/Work";
-import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";   // 👈 ADD THIS
+import GhostCursor from "./components/GhostCursor";
+
+// ⭐ FIXED IMPORTS (Linux/Vercel case-sensitive)
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Work from "./Pages/Work";
+import Blog from "./Pages/Blog";
+import Contact from "./Pages/Contact";
 
 export default function App() {
   return (
     <>
       {/* global ghost cursor overlay */}
-       <GhostCursor />  
+      <GhostCursor />
 
       {/* navbar + routes */}
       <PillNavbar />
@@ -23,7 +26,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/work" element={<Work />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<Contact />} /> {/* 👈 ADD THIS */}
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   );
