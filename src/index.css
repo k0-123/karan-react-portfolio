@@ -1,0 +1,53 @@
+ @import "tailwindcss";
+
+ /* index.css */
+
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #000;   /* 🔥 full black background for whole app */
+  color: #fff;
+} 
+ 
+ @font-face {
+  font-family: "FatKat";
+  src: url("./Fonts/fat_kat/FatKat.ttf") format("truetype");
+}
+
+.font-fatkat {
+  font-family: "FatKat", cursive;
+}
+
+/* VISUAL BOLD EFFECT FOR HANDWRITTEN FONTS */
+.font-fatkat-bold {
+  -webkit-text-stroke: 1.2px rgba(0, 0, 0, 0.65);
+}
+
+
+@font-face {
+  font-family: "TheAugusta";
+  src: url("./Fonts/the_augusta/TheAugusta.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-theaugusta {
+  font-family: "TheAugusta", cursive;
+}
+
+
+
+@keyframes flowingGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
