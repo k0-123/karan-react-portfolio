@@ -218,7 +218,7 @@ export default function Footer() {
   return (
     <footer
       ref={containerRef}
-      className="relative w-full bg-black text-white overflow-hidden"
+      className="footer-root relative w-full bg-black text-white overflow-hidden"
     >
       {/* THREE.JS BG */}
       <div ref={threeMountRef} className="absolute inset-0" />
@@ -229,18 +229,18 @@ export default function Footer() {
       {/* HERO / CTA PART */}
       <div
         className={`
-          relative z-10 max-w-6xl mx-auto px-6 py-20
+          relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20
           flex flex-col items-center justify-center
-          min-h-[70vh]
+          min-h-[60vh] sm:min-h-[70vh]
           transition-all duration-700 ease-out
           ${containerState}
         `}
       >
-        <div className="flex flex-col items-center text-center gap-1">
+        <div className="flex flex-col items-center text-center gap-2">
           {/* LINE 1 */}
           <h2
             className={`
-              text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+              text-2xl sm:text-4xl md:text-5xl lg:text-6xl
               font-semibold tracking-wide
               transition-all duration-700 ease-out transform
               ${line1State}
@@ -260,10 +260,10 @@ export default function Footer() {
           </h2>
 
           {/* LINE 2 + BADGE */}
-          <div className="relative flex items-center justify-center -mt-1">
+          <div className="relative flex flex-col md:flex-row items-center justify-center -mt-1 gap-4 md:gap-0">
             <h2
               className={`
-                text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                text-2xl sm:text-4xl md:text-5xl lg:text-6xl
                 font-semibold tracking-wide
                 transition-all duration-700 ease-out transform
                 ${line2State}
@@ -285,14 +285,12 @@ export default function Footer() {
 
             <div
               className={`
-                absolute
+                badge-wrapper
                 transition-all duration-700 ease-out
                 ${badgeState}
               `}
               style={{
                 transitionDelay: visible ? "350ms" : "0ms",
-                right: "-65px",
-                top: "28px",
               }}
             >
               <RotatingBadge />
@@ -300,49 +298,52 @@ export default function Footer() {
           </div>
 
           {/* CTA BUTTON */}
-          <div
-            className="inline-flex mt-16"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              ref={btnRef}
-              className="
-                group
-                relative inline-flex items-center gap-3
-                rounded-full px-8 py-3
-                border border-white/20
-                bg-white/5 backdrop-blur
-                text-sm md:text-base font-semibold tracking-wide
-                text-white
-                transition-[box-shadow,background-color,color] duration-200
-                shadow-[0_0_18px_rgba(0,0,0,0.8)]
-                hover:bg-white
-                hover:text-black
-                hover:shadow-[0_0_30px_rgba(255,255,255,0.35)]
-              "
-            >
-              <span>Get In Touch</span>
-              <span
-                className="
-                  flex h-7 w-7 items-center justify-center
-                  rounded-full
-                  bg-white text-black text-xs
-                  transition-colors duration-200
-                  group-hover:bg-black group-hover:text-white
-                "
-              >
-                →
-              </span>
-            </button>
-          </div>
+<div
+  className="inline-flex mt-10 sm:mt-16"
+  onMouseMove={handleMouseMove}
+  onMouseLeave={handleMouseLeave}
+>
+  <Link to="/contact">
+    <button
+      ref={btnRef}
+      className="
+        group
+        relative inline-flex items-center gap-3
+        rounded-full px-7 sm:px-8 py-2.5 sm:py-3
+        border border-white/20
+        bg-white/5 backdrop-blur
+        text-sm md:text-base font-semibold tracking-wide
+        text-white
+        transition-[box-shadow,background-color,color] duration-200
+        shadow-[0_0_18px_rgba(0,0,0,0.8)]
+        hover:bg-white
+        hover:text-black
+        hover:shadow-[0_0_30px_rgba(255,255,255,0.35)]
+      "
+    >
+      <span>Get In Touch</span>
+      <span
+        className="
+          flex h-7 w-7 items-center justify-center
+          rounded-full
+          bg-white text-black text-xs
+          transition-colors duration-200
+          group-hover:bg-black group-hover:text-white
+        "
+      >
+        →
+      </span>
+    </button>
+  </Link>
+</div>
 
+         
           {/* SUBTEXT */}
-          <div className="space-y-3 max-w-xl mt-4">
-            <p className="text-lg md:text-xl font-semibold text-gray-100">
+          <div className="space-y-3 max-w-xl mt-4 px-4 sm:px-0">
+            <p className="text-base sm:text-lg md:text-xl font-semibold text-gray-100">
               I’m available for full-time roles & freelance projects.
             </p>
-            <p className="text-sm md:text-base text-gray-300">
+            <p className="text-xs sm:text-sm md:text-base text-gray-300">
               I build modern web applications with clean UI and seamless user
               experiences.
             </p>
@@ -353,42 +354,42 @@ export default function Footer() {
       {/* =======================  BOTTOM SECTION  ======================= */}
       <div className="relative z-10 bg-black border-t border-white/10">
         {/* MAIN ROW: LEFT BLOCK + COLUMNS */}
-        <div className="max-w-6xl mx-auto px-6 pt-14 pb-10 flex flex-col md:flex-row md:justify-between gap-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 sm:pt-14 pb-8 sm:pb-10 flex flex-col md:flex-row md:justify-between gap-10 sm:gap-12">
           {/* LEFT BLOCK – KS + TEXT */}
-          <div className="max-w-sm ml-[-20px] space-y-3">
+          <div className="max-w-sm md:ml-[-20px] space-y-3 text-center md:text-left mx-auto md:mx-0">
             {/* Styled KS badge */}
             <div className="inline-flex items-center gap-3">
               <div
                 className="
-                  w-11 h-11 rounded-full
+                  w-10 h-10 sm:w-11 sm:h-11 rounded-full
                   border border-white/30
                   bg-white/5
                   flex items-center justify-center
-                  text-sm font-semibold tracking-tight
+                  text-xs sm:text-sm font-semibold tracking-tight
                   shadow-[0_0_18px_rgba(255,255,255,0.18)]
                 "
               >
                 KS
               </div>
-              <span className="text-[11px] uppercase tracking-[0.25em] text-gray-400">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-400">
                 Portfolio
               </span>
             </div>
 
-            <p className="font-semibold text-gray-100 leading-relaxed text-[15px]">
+            <p className="font-semibold text-gray-100 leading-relaxed text-[14px] sm:text-[15px]">
               I&apos;m Karan — a frontend developer,
-              <br />
+              <br className="hidden sm:block" />
               freelancer &amp; problem solver.
-              <br />
+              <br className="hidden sm:block" />
               Thanks for checking out my site!
             </p>
           </div>
 
           {/* RIGHT SIDE — COLUMNS */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-14 text-sm">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-14 text-xs sm:text-sm text-center md:text-left mx-auto md:mx-0">
             {/* GENERAL */}
             <div className="space-y-3">
-              <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+              <h4 className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
                 General
               </h4>
               <div className="space-y-1 text-gray-200">
@@ -409,7 +410,7 @@ export default function Footer() {
 
             {/* SPECIFICS */}
             <div className="space-y-3">
-              <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+              <h4 className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
                 Specifics
               </h4>
               <div className="space-y-1 text-gray-200">
@@ -427,7 +428,7 @@ export default function Footer() {
 
             {/* MORE */}
             <div className="space-y-3">
-              <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+              <h4 className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
                 More
               </h4>
               <div className="space-y-1 text-gray-200">
@@ -441,10 +442,10 @@ export default function Footer() {
 
         {/* LAST ROW: COPYRIGHT + POLICIES + ICONS */}
         <div className="border-t border-white/10">
-          <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-            <p className="text-center md:text-left">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 text-[11px] sm:text-xs text-gray-400">
+            <p className="text-center md:text-left leading-relaxed">
               © 2025 Karan Shekhawat. All rights reserved.
-              <span className="ml-8 whitespace-nowrap">
+              <span className="block md:inline md:ml-8 mt-1 md:mt-0 whitespace-nowrap">
                 <a href="#privacy" className="footer-anim">
                   Privacy Policy
                 </a>{" "}
@@ -455,22 +456,22 @@ export default function Footer() {
               </span>
             </p>
 
-            <div className="flex items-center gap-3 text-sm text-white">
+            <div className="flex items-center gap-2 sm:gap-3 text-sm text-white">
               <a
                 href="#linkedin"
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-xs hover:bg-white hover:text-black transition"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/25 flex items-center justify-center text-[11px] sm:text-xs hover:bg-white hover:text-black transition"
               >
                 in
               </a>
               <a
                 href="#github"
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-xs hover:bg-white hover:text-black transition"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/25 flex items-center justify-center text-[11px] sm:text-xs hover:bg-white hover:text-black transition"
               >
                 {"</>"}
               </a>
               <a
                 href="#x"
-                className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-xs hover:bg-white hover:text-black transition"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/25 flex items-center justify-center text-[11px] sm:text-xs hover:bg-white hover:text-black transition"
               >
                 X
               </a>
@@ -481,6 +482,26 @@ export default function Footer() {
 
       {/* rotation + hover speed + center circle hover + link underline anim */}
       <style>{`
+        /* Top fade to visually merge with previous section */
+        .footer-root {
+          position: relative;
+        }
+
+        .footer-root::before {
+          content: "";
+          position: absolute;
+          top: -40px;
+          left: 0;
+          right: 0;
+          height: 40px;
+          pointer-events: none;
+          background: linear-gradient(
+            to top,
+            rgba(0,0,0,1),
+            rgba(0,0,0,0)
+          );
+        }
+
         @keyframes spinText {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
@@ -499,6 +520,22 @@ export default function Footer() {
           color: white;
           border-color: rgba(255,255,255,0.6);
           box-shadow: 0 0 10px rgba(34,197,94,0.55);
+        }
+
+        /* Rotating badge positioning: mobile stacked, desktop absolute */
+        .badge-wrapper {
+          position: static;
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+          .badge-wrapper {
+            position: absolute;
+            right: -65px;
+            top: 28px;
+            margin-top: 0;
+          }
         }
 
         .footer-anim {
@@ -557,7 +594,7 @@ function RotatingBadge() {
   const radius = 55;
 
   return (
-    <div className="badge-spin-wrapper relative w-28 h-28 flex items-center justify-center cursor-pointer">
+    <div className="badge-spin-wrapper relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center cursor-pointer">
       <div className="absolute inset-0 rounded-full border border-white/20 shadow-[0_0_18px_rgba(255,255,255,0.25)]" />
       <div className="spin-text absolute inset-0 flex items-center justify-center">
         {chars.map((char, i) => {
@@ -565,7 +602,7 @@ function RotatingBadge() {
           return (
             <span
               key={i}
-              className="absolute text-[8px] tracking-[0.2em] uppercase"
+              className="absolute text-[7px] sm:text-[8px] tracking-[0.2em] uppercase"
               style={{
                 transform: `
                   rotate(${angle}deg)
@@ -583,10 +620,10 @@ function RotatingBadge() {
       <div
         className="
           center-dot
-          relative z-10 w-10 h-10 rounded-full bg-black
+          relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black
           flex items-center justify-center
           border border-white/30
-          text-[8px] tracking-[0.15em]
+          text-[7px] sm:text-[8px] tracking-[0.15em]
           transition-all duration-300
         "
       >
