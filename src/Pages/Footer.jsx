@@ -218,7 +218,7 @@ export default function Footer() {
   return (
     <footer
       ref={containerRef}
-      className="footer-root relative w-full bg-black text-white overflow-hidden"
+      className="relative w-full bg-black text-white overflow-hidden"
     >
       {/* THREE.JS BG */}
       <div ref={threeMountRef} className="absolute inset-0" />
@@ -481,26 +481,6 @@ export default function Footer() {
 
       {/* rotation + hover speed + center circle hover + link underline anim */}
       <style>{`
-        /* Top fade to visually merge with previous section */
-        .footer-root {
-          position: relative;
-        }
-
-        .footer-root::before {
-          content: "";
-          position: absolute;
-          top: -40px;
-          left: 0;
-          right: 0;
-          height: 40px;
-          pointer-events: none;
-          background: linear-gradient(
-            to top,
-            rgba(0,0,0,1),
-            rgba(0,0,0,0)
-          );
-        }
-
         @keyframes spinText {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
